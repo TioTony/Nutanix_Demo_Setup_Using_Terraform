@@ -1,4 +1,4 @@
-
+Test
 7. At the command prompt run 'terraform init'.  This will download the provider to your machine.
 8. Run 'terrform plan'
 9. Run 'terraform apply -auto-approve'
