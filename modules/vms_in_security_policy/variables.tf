@@ -1,0 +1,23 @@
+/*
+TH: Variables passed to this module from the root 
+*/
+
+variable "vm_subnet" {
+    description = "Name of the Subnet to be used for this VM"
+    type = string
+}
+
+variable "vm_image" {
+    description = "Image to use for building the VM OS"
+    type = string
+}
+
+variable "vm_cluster" {
+    description = "UUID of the cluster to build the VM on"
+    type = string
+}
+
+variable "vm_count" {
+    description = "Number of VMs to craete"
+    type = number
+}
