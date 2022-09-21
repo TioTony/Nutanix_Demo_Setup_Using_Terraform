@@ -13,11 +13,11 @@ terraform {
 /*
 TH: This section contains all the details related to the VMs being built for inclusion in the Security Policy.
 */
-resource "nutanix_virtual_machine" "TH_TF_Security_Policy_vm" {
+resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_vm" {
   # General Information
   count = var.vm_count
-  name                 = "TH_TF_Security_Policy_vm_${count.index}"
-  description          = "Tony Hughes Terraform Security Policy VM"
+  name                 = "${var.prefix_for_created_entities}Security_Policy_vm_${count.index}"
+  description          = "${var.prefix_for_created_entities}Security Policy VM"
   num_vcpus_per_socket = 2
   num_sockets          = 1
   memory_size_mib      = 4096
@@ -50,11 +50,11 @@ resource "nutanix_virtual_machine" "TH_TF_Security_Policy_vm" {
 
     categories {
       name   = data.nutanix_category_key.AppTypeKey.name
-      value  = nutanix_category_value.TH_TF_Secure_AppType_Desktop.value
+      value  = nutanix_category_value.${var.prefix_for_created_entities}Secure_AppType_Desktop.value
     }
 
     categories {
       name   = data.nutanix_category_key.AppTierKey.name
-      value  = nutanix_category_value.TH_TF_Secure_AppTier_Desktop.value
+      value  = nutanix_category_value.${var.prefix_for_created_entities}Secure_AppTier_Desktop.value
     }
 }

@@ -9,11 +9,11 @@ TH: Create a policy for the desktop systems craeted in this module with the foll
       - Ports 80 and 443 for http/https
       - Ports 3389 and 20009 for RDP
 */
-resource "nutanix_network_security_rule" "TH_TF_Secure_Desktops" {
+resource "nutanix_network_security_rule" "AMH_TF_AUTO_Secure_Desktops" {
 
 # Name the rule and give it a description
-name = "TH_TF_Secure_Desktops"
-description = "TH Terraform created Rule to Secure Desktops"
+name = "${var.prefix_for_created_entities}Secure_Desktops"
+description = "${var.prefix_for_created_entities}Terraform created Rule to Secure Desktops"
 
 # Set applicatoin rule mode
 app_rule_action = "MONITOR"
@@ -27,11 +27,11 @@ app_rule_target_group_filter_kind_list = [ "vm" ]
 # === Rule will be applyed to ===
 app_rule_target_group_filter_params {
    name = data.nutanix_category_key.AppTypeKey.name
-   values = [ nutanix_category_value.TH_TF_Secure_AppType_Desktop.value ]
+   values = [ nutanix_category_value.${var.prefix_for_created_entities}Secure_AppType_Desktop.value ]
 }
 app_rule_target_group_filter_params {
    name = data.nutanix_category_key.AppTierKey.name
-   values = [ nutanix_category_value.TH_TF_Secure_AppTier_Desktop.value ]
+   values = [ nutanix_category_value.${var.prefix_for_created_entities}Secure_AppTier_Desktop.value ]
 }
 
  # === Inbound traffic rule ===

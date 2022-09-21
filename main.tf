@@ -30,33 +30,20 @@ locals {
 }
 
 /*
-TH: Define the location for the image to be used for creating the VM.  This image will be uploaded to the cluster by Terraform.
-    This example uses the file server in PHX.  
-    This same image is typically on the HPOC cluster already, but we are going to upload it again just in case it isn't there.
-*/
-resource "nutanix_image" "AMH_TF_CentOS7" {
-  name        = "${var.prefix_for_created_entities}CentOS7"
-  source_uri  = "http://10.42.194.11/workshop_staging/CentOS7.qcow2"
-  description = "${var.prefix_for_created_entities}CentOS7 qcow image"
-}
-
-/*
 TH: This section contains the "modules" to be included for specific tasks.  Each module is a self-contained sub-directory to carry out the specific 
     creation tasks for the purpose defined in that module.  In other words, each module is an example of a specific Nutanix function that can be 
     used for demos.
 */
 
-/*
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
   # Use the Primary Subnet
   vm_subnet = data.nutanix_subnet.Primary.id
   # Use the CentOS image created above
-  vm_image = nutanix_image.TH_TF_CentOS7.id
+  vm_image = nutanix_image.${var.prefix_for_created_entities}CentOS7.id
   # Place all VMs on the cluster identified above
   vm_cluster = local.cluster1
   # Number of VMs to create
   vm_count = 10
 }
-*/

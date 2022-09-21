@@ -8,9 +8,9 @@ data "nutanix_category_key" "AppTypeKey"{
 }
 
 # Add AppType value for Secure_Desktop
-resource "nutanix_category_value" "TH_TF_Secure_AppType_Desktop"{
+resource "nutanix_category_value" "AMH_TF_AUTO_Secure_AppType_Desktop"{
     name = data.nutanix_category_key.AppTypeKey.id
-    value = "TH_TF_Secure_AppType_Desktop"
+    value = "${var.prefix_for_created_entities}Secure_AppType_Desktop"
 }
 
 # Existing AppTier
@@ -19,7 +19,7 @@ data "nutanix_category_key" "AppTierKey"{
 }
 
 # Add AppTier value for Secure Desktop
-resource "nutanix_category_value" "TH_TF_Secure_AppTier_Desktop"{
+resource "nutanix_category_value" "AMH_TF_AUTO_Secure_AppTier_Desktop"{
     name = data.nutanix_category_key.AppTierKey.id
-    value = "TH_TF_Secure_AppTier_Desktop"
+    value = "${var.prefix_for_created_entities}Secure_AppTier_Desktop"
 }
