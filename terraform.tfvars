@@ -3,6 +3,9 @@ TH: Cluster Variables.  Update this file with the information for the cluster be
 */
 # String to prepend to all entities created by this script for easy identification
 # This example is my initials plus TF for Terraform = AMH_TF_
+# As of 9/21/2022 Terraform does not allow variable interpolation within resource names.  This
+# means the resources cannot be named dynamically.  In those cases I use "AMH_TF_".  Search
+# and substitute it if desired.
 prefix_for_created_entities = "AMH_TF_"
 # Prism Central Username
 cluster_pc_username = "admin"

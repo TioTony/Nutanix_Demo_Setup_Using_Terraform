@@ -42,6 +42,6 @@ variable "cluster_connection_wait_timeout" {
 }
 
 variable "prefix_for_created_entities" {
-  type = string
+  type        = string
   description = "Prefix to prepend to all entitites created by this script"
 }

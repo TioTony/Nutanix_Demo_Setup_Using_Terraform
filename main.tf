@@ -34,10 +34,10 @@ TH: Define the location for the image to be used for creating the VM.  This imag
     This example uses the file server in PHX.  
     This same image is typically on the HPOC cluster already, but we are going to upload it again just in case it isn't there.
 */
-resource "nutanix_image" "${prefix_for_created_entities}CentOS7" {
-  name        = "TH_TF_CentOS7"
+resource "nutanix_image" "AMH_TF_CentOS7" {
+  name        = "${var.prefix_for_created_entities}CentOS7"
   source_uri  = "http://10.42.194.11/workshop_staging/CentOS7.qcow2"
-  description = "TH_TF_CentOS7 qcow image"
+  description = "${var.prefix_for_created_entities}CentOS7 qcow image"
 }
 
 /*
@@ -45,6 +45,8 @@ TH: This section contains the "modules" to be included for specific tasks.  Each
     creation tasks for the purpose defined in that module.  In other words, each module is an example of a specific Nutanix function that can be 
     used for demos.
 */
+
+/*
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
@@ -57,3 +59,4 @@ module "vms_in_security_policy" {
   # Number of VMs to create
   vm_count = 10
 }
+*/
