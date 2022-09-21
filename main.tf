@@ -49,3 +49,18 @@ module "vms_in_security_policy" {
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }
+
+module "vms_in_protection_policy" {
+  source = "./modules/vms_in_protection_policy"
+
+  # Use the Primary Subnet
+  vm_subnet = data.nutanix_subnet.Primary.id
+  # Use the CentOS image created above
+  vm_image = nutanix_image.AMH_TF_AUTO_CentOS7.id
+  # Place all VMs on the cluster identified above
+  vm_cluster = local.cluster1
+  # Number of VMs to create
+  vm_count = 10
+  # Prefix to prepend to created entities
+  prefix_for_created_entities = var.prefix_for_created_entities
+}
