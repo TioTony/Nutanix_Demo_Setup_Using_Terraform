@@ -34,7 +34,7 @@ TH: Define the location for the image to be used for creating the VM.  This imag
     This example uses the file server in PHX.  
     This same image is typically on the HPOC cluster already, but we are going to upload it again just in case it isn't there.
 */
-resource "nutanix_image" "TH_TF_CentOS7" {
+resource "nutanix_image" "${prefix_for_created_entities}CentOS7" {
   name        = "TH_TF_CentOS7"
   source_uri  = "http://10.42.194.11/workshop_staging/CentOS7.qcow2"
   description = "TH_TF_CentOS7 qcow image"

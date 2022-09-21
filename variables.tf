@@ -40,3 +40,8 @@ variable "cluster_connection_wait_timeout" {
   type        = number
   description = "Prism Central Connection Timeout in Seconds"
 }
+
+variable "prefix_for_created_entities" {
+  type = string
+  description = "Prefix to prepend to all entitites created by this script"
+}

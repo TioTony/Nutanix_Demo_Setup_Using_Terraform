@@ -1,8 +1,13 @@
 /*
 TH: Create a policy for the desktop systems craeted in this module with the following properties:
     - VMs are in the same AppTier but cannot communicate with each other
-    - VMs allow all outbound traffic
-    - VMs allow inbound traffic on ports 22, 80, and 443
+    - VMs allow inbound traffic on ports 22, 80, 443, 3389, 20009
+    - VMs allow outbound traffic on ports 80, 443
+    - Deny traffic between VMs in this policy
+    - For reference
+      - Port 22 for ssh
+      - Ports 80 and 443 for http/https
+      - Ports 3389 and 20009 for RDP
 */
 resource "nutanix_network_security_rule" "TH_TF_Secure_Desktops" {
 
@@ -35,6 +40,10 @@ app_rule_inbound_allow_list {
    ip_subnet_prefix_length = "0"
    peer_specification_type = "IP_SUBNET"
    protocol                = "TCP"
+      tcp_port_range_list {
+      end_port   = 22
+      start_port = 22
+   }
    tcp_port_range_list {
       end_port   = 80
       start_port = 80
@@ -42,6 +51,14 @@ app_rule_inbound_allow_list {
    tcp_port_range_list {
       end_port   = 443
       start_port = 443
+   }
+      tcp_port_range_list {
+      end_port   = 3389
+      start_port = 3389
+   }
+      tcp_port_range_list {
+      end_port   = 20009
+      start_port = 20009
    }
 }
 

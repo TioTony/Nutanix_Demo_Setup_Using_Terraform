@@ -1,6 +1,9 @@
 /*
 TH: Cluster Variables.  Update this file with the information for the cluster being used
 */
+# String to prepend to all entities created by this script for easy identification
+# This example is my initials plus TF for Terraform = AMH_TF_
+prefix_for_created_entities = "AMH_TF_"
 # Prism Central Username
 cluster_pc_username = "admin"
 # Prism Central Password
