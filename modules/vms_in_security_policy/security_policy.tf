@@ -27,11 +27,11 @@ app_rule_target_group_filter_kind_list = [ "vm" ]
 # === Rule will be applyed to ===
 app_rule_target_group_filter_params {
    name = data.nutanix_category_key.AppTypeKey.name
-   values = [ nutanix_category_value.${var.prefix_for_created_entities}Secure_AppType_Desktop.value ]
+   values = [ nutanix_category_value.AMH_TF_AUTO_Secure_AppType_Desktop.value ]
 }
 app_rule_target_group_filter_params {
    name = data.nutanix_category_key.AppTierKey.name
-   values = [ nutanix_category_value.${var.prefix_for_created_entities}Secure_AppTier_Desktop.value ]
+   values = [ nutanix_category_value.AMH_TF_AUTO_Secure_AppTier_Desktop.value ]
 }
 
  # === Inbound traffic rule ===

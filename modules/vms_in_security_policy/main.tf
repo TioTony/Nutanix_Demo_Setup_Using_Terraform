@@ -50,11 +50,11 @@ resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_vm" {
 
     categories {
       name   = data.nutanix_category_key.AppTypeKey.name
-      value  = nutanix_category_value.${var.prefix_for_created_entities}Secure_AppType_Desktop.value
+      value  = nutanix_category_value.AMH_TF_AUTO_Secure_AppType_Desktop.value
     }
 
     categories {
       name   = data.nutanix_category_key.AppTierKey.name
-      value  = nutanix_category_value.${var.prefix_for_created_entities}Secure_AppTier_Desktop.value
+      value  = nutanix_category_value.AMH_TF_AUTO_Secure_AppTier_Desktop.value
     }
 }

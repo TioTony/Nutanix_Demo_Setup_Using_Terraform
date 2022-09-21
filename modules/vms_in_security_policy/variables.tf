@@ -18,6 +18,11 @@ variable "vm_cluster" {
 }
 
 variable "vm_count" {
-    description = "Number of VMs to craete"
+    description = "Number of VMs to create"
     type = number
+}
+
+variable "prefix_for_created_entities"{
+    description = "Prefix to prepend to created entities"
+    type = string
 }
