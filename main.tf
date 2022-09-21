@@ -51,7 +51,7 @@ module "vms_in_security_policy" {
 }
 
 module "vms_in_protection_policy" {
-  source = "./modules/vms_in_protection_policy"
+  source = "./modules/vms_in_leap_protection_policy"
 
   # Use the Primary Subnet
   vm_subnet = data.nutanix_subnet.Primary.id
@@ -60,7 +60,7 @@ module "vms_in_protection_policy" {
   # Place all VMs on the cluster identified above
   vm_cluster = local.cluster1
   # Number of VMs to create
-  vm_count = 10
+  vm_count = 5
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }

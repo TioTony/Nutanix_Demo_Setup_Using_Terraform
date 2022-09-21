@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"vms_in_security_policy","Source":"./modules/vms_in_security_policy","Dir":"modules/vms_in_security_policy"}]}
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"vms_in_security_policy","Source":"./modules/vms_in_security_policy","Dir":"modules/vms_in_security_policy"},{"Key":"vms_in_protection_policy","Source":"./modules/vms_in_leap_protection_policy","Dir":"modules/vms_in_leap_protection_policy"}]}
