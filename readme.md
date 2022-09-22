@@ -29,5 +29,5 @@ There is still some work to be done to meet the above goals.
 **vms_in_leap_protection_policy**
     Create the number of VMs specified and implement a Leap Protection Policy
 
-    **Note**:  This modele requires 2 Clusters be registered to the Prism Central 
+    Note:  This modele requires 2 Clusters be registered to the Prism Central 
 
