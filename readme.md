@@ -13,3 +13,8 @@ Modules
 vms_in_security_policy
     Create the number of VMs specified and use Flow Microsegmentation to create a security policy for these VMs
 
+vms_in_leap_protection_policy
+    Create the number of VMs specified and implement a Leap Protection Policy
+
+    Note:  This modele requires 2 Clusters be registered to the Prism Central 
+
