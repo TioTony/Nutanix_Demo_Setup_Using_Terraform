@@ -18,9 +18,9 @@ cluster_pc_password = "nx2Tech714!"
 # Prism Central Port
 cluster_pc_port = "9440"
 # Prism Central IP or DNS Name
-cluster_pc_endpoint = "10.38.1.9"
+cluster_pc_endpoint = "10.38.6.201"
 # Foundation Server IP or DNS Name.  Set to the same value as the Prism Central IP or DNS Name if Foundation is not being used.
-cluster_foundation_endpoint = "10.38.1.9"
+cluster_foundation_endpoint = "10.38.6.201"
 # Foundation Server Port
 cluster_foundation_port = "8000"
 # "true" if using an insecure connection.  "false" if using a secure connection.  HPOC will be "true".

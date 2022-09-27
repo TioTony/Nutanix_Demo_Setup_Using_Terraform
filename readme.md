@@ -10,6 +10,15 @@ Each demo scenario is fairly self-contained in a module.  Modules can be selecte
 
 There is still some work to be done to meet the above goals.
 
+## Cluster setup
+- These scripts expect a Prism Central with 2 Clusters attached.  They can be 1,3 or 4 node clusters from the PHX HPOC.  
+
+- PHX must be used currently because the images being references are on the PHX file server.
+
+- Flow (Security Policy Microsegmentation) must be eneabled.
+
+- Disaster Recovery for the Local AZ must be enabled in Leap.
+
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs
 - Visit the Terraform site for Terraform installation instruactions.  They cover it better than I could.
@@ -20,6 +29,9 @@ There is still some work to be done to meet the above goals.
     - terraform plan
     - terraform apply -auto-approve
     - terraform destroy -auto-approve
+
+- All VMs will be created in the cluster identified in by the Index value in main.tf and datasources.tf.  The other cluster will be
+  a destination target for Protection Policies, VPCs, etc.
 
 ## Modules
 

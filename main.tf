@@ -5,6 +5,8 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
     with the UUID is not connected.  I think this happens depending on whether PC or PE comes back
     first or second but I haven't confirmed.
 
+    The same change needs to be made in datasources.tf for the Primary network filter.
+
     This is what the error looks like:
 
     Error: error: {
@@ -26,7 +28,7 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
 ╵
 */
 locals {
-  cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
+  cluster1 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
 }
 
 /*
