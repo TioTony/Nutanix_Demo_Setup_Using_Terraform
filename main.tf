@@ -36,7 +36,7 @@ TH: This section contains the "modules" to be included for specific tasks.  Each
     creation tasks for the purpose defined in that module.  In other words, each module is an example of a specific Nutanix function that can be 
     used for demos.
 */
-
+/*
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
@@ -51,7 +51,7 @@ module "vms_in_security_policy" {
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }
-
+*/
 module "vms_in_protection_policy" {
   source = "./modules/vms_in_leap_protection_policy"
 
@@ -65,4 +65,6 @@ module "vms_in_protection_policy" {
   vm_count = 5
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
+  # Local Availability Zone URL
+  local_az_url = var.cluster_local_az_url
 }

@@ -45,3 +45,8 @@ variable "prefix_for_created_entities" {
   type        = string
   description = "Prefix to prepend to all entitites created by this script"
 }
+
+variable "cluster_local_az_url" {
+  type        = string
+  description = "Local Availability Zone URL"
+}

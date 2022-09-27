@@ -1,5 +1,5 @@
 /*
-TH: Create a policy for the desktop systems craeted in this module with the following properties:
+TH: Create a Security Policy for the desktop systems created in this module with the following properties:
     - VMs are in the same AppTier but cannot communicate with each other
     - VMs allow inbound traffic on ports 22, 80, 443, 3389, 20009
     - VMs allow outbound traffic on ports 80, 443
@@ -11,14 +11,14 @@ TH: Create a policy for the desktop systems craeted in this module with the foll
 */
 resource "nutanix_network_security_rule" "AMH_TF_AUTO_Secure_Desktops" {
 
-# Name the rule and give it a description
+# Name the security rule and give it a description
 name = "${var.prefix_for_created_entities}Secure_Desktops"
 description = "${var.prefix_for_created_entities}Terraform created Rule to Secure Desktops"
 
-# Set applicatoin rule mode
+# Set application rule mode
 app_rule_action = "MONITOR"
 
-# Rules for Desktops
+# Security Rules for Desktops
 app_rule_target_group_peer_specification_type = "FILTER"
 app_rule_target_group_default_internal_policy = "DENY_ALL"
 app_rule_target_group_filter_type = "CATEGORIES_MATCH_ALL"

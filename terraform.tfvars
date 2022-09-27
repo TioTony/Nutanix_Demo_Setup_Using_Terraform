@@ -27,3 +27,9 @@ cluster_foundation_port = "8000"
 cluster_connection_insecure_true_false = "true"
 # Connection time out in seconds
 cluster_connection_wait_timeout = "30"
+# Availability Zone URL for use with Protection Policy
+   /*TH: It doesn't appear there is an easy way to obtain the AZ URL programatically in Terraform.  It must 
+     must be obtained using the "inspect element" from a browser open to that "Administration -> Availability Zones"
+     page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
+    */
+cluster_local_az_url = "b09fcee8-8c2f-4d55-a5ba-b8d3c4a92f55"

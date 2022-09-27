@@ -53,8 +53,4 @@ resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_vm" {
       value  = nutanix_category_value.AMH_TF_AUTO_Protection_AppType_Desktop.value
     }
 
-    categories {
-      name   = data.nutanix_category_key.AppTierKey.name
-      value  = nutanix_category_value.AMH_TF_AUTO_Protection_AppTier_Desktop.value
-    }
 }

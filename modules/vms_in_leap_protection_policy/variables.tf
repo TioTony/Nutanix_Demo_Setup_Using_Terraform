@@ -26,3 +26,8 @@ variable "prefix_for_created_entities"{
     description = "Prefix to prepend to created entities"
     type = string
 }
+
+variable "local_az_url"{
+    description = "Local Availability Zone URL"
+    type = string
+}

@@ -29,7 +29,7 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
 
 data "nutanix_subnet" "Primary" {
   subnet_name = "Primary"
-  
+
   /*
   additional_filter {
   name = "name"
@@ -38,7 +38,7 @@ data "nutanix_subnet" "Primary" {
   */
 
   additional_filter {
-  name = "cluster_reference.uuid"
-  values = ["${data.nutanix_clusters.clusters.entities[1].metadata.uuid}"]
+    name   = "cluster_reference.uuid"
+    values = ["${data.nutanix_clusters.clusters.entities[1].metadata.uuid}"]
   }
 }
