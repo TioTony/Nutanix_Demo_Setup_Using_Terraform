@@ -15,6 +15,7 @@ ordered_availability_zone_list{
     */
 
    availability_zone_url = var.local_az_url
+   cluster_uuid = var.vm_cluster
 }
 
 availability_zone_connectivity_list{

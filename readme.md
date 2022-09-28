@@ -44,3 +44,11 @@ There is still some work to be done to meet the above goals.
     Note: This modele requires 2 Clusters be registered to the Prism Central 
     Note: The Availability Zone URL must be obtained from the Prism Central UI.  See notes in terraform.tfvars
 
+### Tested Versions
+
+| Nutanix Provider Version | AOS Version | PC Version | Date Tested |
+|----------|----------|----------|----------|
+| 1.7.0 | 5.20.3 | pc.2022.6 | 9/20/2022 |
+| 1.7.0 | 6.5 | pc.2022.6 | 9/21/2022 |
+| 1.7.1 | 6.5.1 | pc.2022.6 | 9/28/2022 |
+

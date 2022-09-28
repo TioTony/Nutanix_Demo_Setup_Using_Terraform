@@ -39,6 +39,6 @@ data "nutanix_subnet" "Primary" {
 
   additional_filter {
     name   = "cluster_reference.uuid"
-    values = ["${data.nutanix_clusters.clusters.entities[1].metadata.uuid}"]
+    values = ["${data.nutanix_clusters.clusters.entities[0].metadata.uuid}"]
   }
 }

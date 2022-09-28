@@ -28,7 +28,7 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
 ╵
 */
 locals {
-  cluster1 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+  cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
 }
 
 /*
@@ -36,7 +36,7 @@ TH: This section contains the "modules" to be included for specific tasks.  Each
     creation tasks for the purpose defined in that module.  In other words, each module is an example of a specific Nutanix function that can be 
     used for demos.
 */
-/*
+
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
@@ -47,11 +47,11 @@ module "vms_in_security_policy" {
   # Place all VMs on the cluster identified above
   vm_cluster = local.cluster1
   # Number of VMs to create
-  vm_count = 10
+  vm_count = 5
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }
-*/
+
 module "vms_in_protection_policy" {
   source = "./modules/vms_in_leap_protection_policy"
 
