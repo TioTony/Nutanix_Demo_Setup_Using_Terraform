@@ -11,13 +11,15 @@ Each demo scenario is fairly self-contained in a module.  Modules can be selecte
 There is still some work to be done to meet the above goals.
 
 ## Cluster setup
-- These scripts expect a Prism Central with 2 Clusters attached.  They can be 1,3 or 4 node clusters from the PHX HPOC.  
+- These scripts expect a Prism Central with 2 Clusters attached.  The first cluster can be a 1,3 or 4 node cluster from the PHX HPOC.  This cluster will host the Prism Central.  
 
-- PHX must be used currently because the images being references are on the PHX file server.
+- PHX should be used for the first cluster because the images being referenced are on the PHX file server.
+
+- The second cluster can be in any HPOC location and can also be a 1, 3 or 4 node cluster.  PHX and DM3 have been verified.  AWS will be tested soon.
 
 - Flow (Security Policy Microsegmentation) must be eneabled.
 
-- Disaster Recovery for the Local AZ must be enabled in Leap.  This can be done by manually creating a Protection Policy in Prism Central and selecting "Enable" on the title bar that appears.
+- Disaster Recovery for the Local AZ must be enabled in Leap.  This can be done by manually creating a Protection Policy in Prism Central and selecting "Enable" on the title bar that appears.  The creation of the policy can then be canceled. 
 
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs

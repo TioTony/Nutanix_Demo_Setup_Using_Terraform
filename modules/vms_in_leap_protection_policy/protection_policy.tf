@@ -9,9 +9,10 @@ name = "${var.prefix_for_created_entities}Protect_Desktops"
 description = "${var.prefix_for_created_entities}Terraform created Rule to Protect Desktops"
 
 ordered_availability_zone_list{
-   /*TH: It doesn't appear there is an easy way to obtain the AZ URL programatically in Terraform.  It must 
-     must be obtained using the "inspect element" from a browser open to that "Administration -> Availability Zones"
-     page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
+   /*TH: Despite the documentation, the availability_zone_url is actually the UUID of Prism Central.  See
+       the root main.tf for this project regarding how this UUID is obtained with nuclei.  The AZ URL
+       and source cluster (where the VMs currently reside) are specified here.  The source cluster is where
+       the main.tf of this module built the VMs.
     */
 
    availability_zone_url = var.prism_central
@@ -19,14 +20,21 @@ ordered_availability_zone_list{
 }
 
 ordered_availability_zone_list{
-   /*TH: It doesn't appear there is an easy way to obtain the AZ URL programatically in Terraform.  It must 
-     must be obtained using the "inspect element" from a browser open to that "Administration -> Availability Zones"
-     page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
+   /*TH: This is the same as the above section except it specified the destination cluster which currently has 
+       none of the VMs located on it.  It will receive the snapshots.
     */
 
    availability_zone_url = var.prism_central
    cluster_uuid = var.destination_cluster
 }
+
+/*
+TH: The availablility_zone_connectivity_list is defining a source location, a destination location, a snapshot schedule, and a retention schedule.  
+   A definition must exist for both direction.  The first section essentially says "take hourly crash consistent snapshots from the destination cluster and replicate
+   them to the source cluster, keep the 2 most recent snapshots on both the source and destination.  
+
+   The second availability_zone_connectivity_list specifies the exact same thing but in the opposite direction - from source to destination.
+*/
 
 availability_zone_connectivity_list{
    destination_availability_zone_index = 1
@@ -57,6 +65,10 @@ availability_zone_connectivity_list{
             }
         }
 }
+
+/*
+TH: Apply this protection policy to any VMs with the category that was created by the categories.tf - namely "<prefix>Protection_AppType_Desktop"
+*/
 
 category_filter {
    params {

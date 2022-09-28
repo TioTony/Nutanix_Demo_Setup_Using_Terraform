@@ -23,7 +23,7 @@ variable "destination_cluster" {
 }
 
 variable "prism_central" {
-    description = "UUID of the Prism Central"
+    description = "UUID of the Prism Central, which is used as the Availbility Zone (AZ) URL"
     type = string
 }
 
@@ -37,6 +37,8 @@ variable "prefix_for_created_entities"{
     type = string
 }
 
+/*
+TH: The Local AZ URL used by the protection policy is actually the UUID of Prism Central, not the UUID of the AZ.
 variable "local_az_url"{
     description = "Local Availability Zone URL"
     type = string
