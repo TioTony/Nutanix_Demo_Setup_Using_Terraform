@@ -76,6 +76,4 @@ module "vms_in_protection_policy" {
   vm_count = 5
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
-  # Local Availability Zone URL
-  local_az_url = var.cluster_local_az_url
 }

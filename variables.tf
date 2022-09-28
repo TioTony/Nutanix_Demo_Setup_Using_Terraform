@@ -46,7 +46,12 @@ variable "prefix_for_created_entities" {
   description = "Prefix to prepend to all entitites created by this script"
 }
 
+/*
+TH: This is not needed but left in to point out the fact the AZ URL used by the Protection Policy is
+actually the UUID for Prism Central and not the AZ
+
 variable "cluster_local_az_url" {
   type        = string
   description = "Local Availability Zone URL"
 }
+*/

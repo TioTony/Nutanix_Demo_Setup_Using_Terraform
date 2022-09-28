@@ -43,3 +43,4 @@ variable "local_az_url"{
     description = "Local Availability Zone URL"
     type = string
 }
+*/
