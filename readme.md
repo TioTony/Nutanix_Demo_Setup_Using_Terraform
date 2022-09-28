@@ -17,7 +17,7 @@ There is still some work to be done to meet the above goals.
 
 - Flow (Security Policy Microsegmentation) must be eneabled.
 
-- Disaster Recovery for the Local AZ must be enabled in Leap.
+- Disaster Recovery for the Local AZ must be enabled in Leap.  This can be done by manually creating a Protection Policy in Prism Central and selecting "Enable" on the title bar that appears.
 
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs

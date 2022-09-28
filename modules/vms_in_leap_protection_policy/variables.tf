@@ -12,8 +12,18 @@ variable "vm_image" {
     type = string
 }
 
-variable "vm_cluster" {
-    description = "UUID of the cluster to build the VM on"
+variable "source_cluster" {
+    description = "UUID of the cluster to build the VMs on and to act as the Source for DR"
+    type = string
+}
+
+variable "destination_cluster" {
+    description = "UUID of the cluster to act as the Destination for DR"
+    type = string
+}
+
+variable "prism_central" {
+    description = "UUID of the Prism Central"
     type = string
 }
 

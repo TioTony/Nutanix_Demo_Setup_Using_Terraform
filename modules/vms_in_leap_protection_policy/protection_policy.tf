@@ -14,15 +14,45 @@ ordered_availability_zone_list{
      page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
     */
 
-   availability_zone_url = var.local_az_url
-   cluster_uuid = var.vm_cluster
+   availability_zone_url = var.prism_central
+   cluster_uuid = var.source_cluster
+}
+
+ordered_availability_zone_list{
+   /*TH: It doesn't appear there is an easy way to obtain the AZ URL programatically in Terraform.  It must 
+     must be obtained using the "inspect element" from a browser open to that "Administration -> Availability Zones"
+     page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
+    */
+
+   availability_zone_url = var.prism_central
+   cluster_uuid = var.destination_cluster
 }
 
 availability_zone_connectivity_list{
+   destination_availability_zone_index = 1
+   source_availability_zone_index = 0
    snapshot_schedule_list{
       recovery_point_objective_secs = 3600
       snapshot_type= "CRASH_CONSISTENT"
       local_snapshot_retention_policy {
+         num_snapshots = 2
+            }
+      remote_snapshot_retention_policy {
+         num_snapshots = 2
+            }
+        }
+}
+
+availability_zone_connectivity_list{
+   destination_availability_zone_index = 0
+   source_availability_zone_index = 1
+   snapshot_schedule_list{
+      recovery_point_objective_secs = 3600
+      snapshot_type= "CRASH_CONSISTENT"
+      local_snapshot_retention_policy {
+         num_snapshots = 2
+            }
+      remote_snapshot_retention_policy {
          num_snapshots = 2
             }
         }
@@ -34,4 +64,5 @@ category_filter {
       values = [ nutanix_category_value.AMH_TF_AUTO_Protection_AppType_Desktop.value ]
       }
 }
+
 }

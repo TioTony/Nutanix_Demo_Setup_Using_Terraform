@@ -13,17 +13,17 @@ terraform {
 /*
 TH: This section contains all the details related to the VMs being built for inclusion in the Security Policy.
 */
-resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_vm" {
+resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_VM" {
   # General Information
   count = var.vm_count
-  name                 = "${var.prefix_for_created_entities}Protection_Policy_vm_${count.index}"
+  name                 = "${var.prefix_for_created_entities}Protection_Policy_VM_${count.index}"
   description          = "${var.prefix_for_created_entities}Proctection Policy VM"
   num_vcpus_per_socket = 2
   num_sockets          = 1
   memory_size_mib      = 4096
 
-  # This is telling Terraform which cluster to build the VM on.  This is the cluster identified at the top of this file.
-  cluster_uuid = var.vm_cluster
+  # This is telling Terraform which cluster to build the VM on.  This is the source cluster for the Protection Policy.
+  cluster_uuid = var.source_cluster
 
   # Define the NIC for the VM
   nic_list {

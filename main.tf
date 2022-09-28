@@ -26,9 +26,16 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
 │   25: resource "nutanix_virtual_machine" "terraform-vm" {
 │
 ╵
+A list of the connected clusters can be found by doing the following:
+- ssh to the Prism Central VM as the 'nutanix' user
+- run 'nuclei clsuter.list'
+- The index should match the output.  For example, the fist cluster listed is index 0.
+- Prism Central will usually be listed ast "Unnamed"
 */
 locals {
   cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
+  cluster2 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+  prism_central = data.nutanix_clusters.clusters.entities[2].metadata.uuid
 }
 
 /*
@@ -59,8 +66,12 @@ module "vms_in_protection_policy" {
   vm_subnet = data.nutanix_subnet.Primary.id
   # Use the CentOS image created above
   vm_image = nutanix_image.AMH_TF_AUTO_CentOS7.id
-  # Place all VMs on the cluster identified above
-  vm_cluster = local.cluster1
+  # Source Cluster for Leap AZ
+  source_cluster = local.cluster1
+  # Destination Cluster for Leap AZ
+  destination_cluster = local.cluster2
+  # Prism Central UUID
+  prism_central = local.prism_central
   # Number of VMs to create
   vm_count = 5
   # Prefix to prepend to created entities
