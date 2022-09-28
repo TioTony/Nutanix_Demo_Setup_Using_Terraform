@@ -31,6 +31,10 @@ A list of the connected clusters can be found by doing the following:
 - run 'nuclei clsuter.list'
 - The index should match the output.  For example, the fist cluster listed is index 0.
 - Prism Central will usually be listed ast "Unnamed"
+Adjust tehe below index values as needed if the clusters and PC don't come back in the order of:
+  - cluster1
+  - cluster2
+  - Prism Central
 */
 locals {
   cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid

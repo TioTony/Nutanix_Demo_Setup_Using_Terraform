@@ -20,6 +20,7 @@ cluster_pc_port = "9440"
 # Prism Central IP or DNS Name
 cluster_pc_endpoint = "10.38.8.201"
 # Foundation Server IP or DNS Name.  Set to the same value as the Prism Central IP or DNS Name if Foundation is not being used.
+# Ommitting this entry causes Terraform to give a warning even if Foundation isn't being used.
 cluster_foundation_endpoint = "10.38.8.201"
 # Foundation Server Port
 cluster_foundation_port = "8000"
@@ -27,12 +28,3 @@ cluster_foundation_port = "8000"
 cluster_connection_insecure_true_false = "true"
 # Connection time out in seconds
 cluster_connection_wait_timeout = "30"
-# Availability Zone URL for use with Protection Policy
-/*TH: 
-Turns out the AZ URL for Protection Policies is realy the Prism Central UUID and not the AZ UUID.
-
-It doesn't appear there is an easy way to obtain the AZ URL programatically in Terraform.  It must 
-     must be obtained using the "inspect element" from a browser open to that "Administration -> Availability Zones"
-     page within Prism Central. https://nutanix.slack.com/archives/C9Z8EAS4Q/p1664301260062159
-    */
-#cluster_local_az_url = "6a79997e-0ed0-4888-9eb0-d45901e026b9"

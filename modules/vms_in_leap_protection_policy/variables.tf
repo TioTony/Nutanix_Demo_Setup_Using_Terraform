@@ -36,11 +36,3 @@ variable "prefix_for_created_entities"{
     description = "Prefix to prepend to created entities"
     type = string
 }
-
-/*
-TH: The Local AZ URL used by the protection policy is actually the UUID of Prism Central, not the UUID of the AZ.
-variable "local_az_url"{
-    description = "Local Availability Zone URL"
-    type = string
-}
-*/
