@@ -5,10 +5,10 @@ TH: Cluster Variables.  Update this file with the information for the cluster be
 /*
  String to prepend to all entities created by this script for easy identification
  This example is my initials plus TF for Terraform = AMH_TF_
- As of 9/21/2022 Terraform does not allow variable interpolation within resource names.  This
- means the resources cannot be named dynamically.  In those cases I use "AMH_TF_AUTO_".  Search
- and substitute it if desired.  It should not cause a problem as those definitions are only used
- Within Terraform and will not appear in Nutanix.
+
+NOTE:  As of 9/21/2022 Terraform does not allow variable interpolation within resource names.  This
+ means the Terraform "resource" definitions cannot be named dynamically.  In those cases I use "AMH_TF_AUTO_".  
+ This will not cause a problem as those definitions are only used within Terraform and will not appear in Nutanix.
 */
 prefix_for_created_entities = "AMH_TF_"
 # Prism Central Username
