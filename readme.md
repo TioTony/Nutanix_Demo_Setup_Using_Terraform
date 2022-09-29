@@ -11,15 +11,20 @@ Each demo scenario is fairly self-contained in a module.  Modules can be selecte
 There is still some work to be done to meet the above goals.
 
 ## Cluster setup
-- These scripts expect a Prism Central with 2 Clusters attached.  The first cluster can be a 1,3 or 4 node cluster from the PHX HPOC.  This cluster will host the Prism Central.  
 
-- PHX should be used for the first cluster because the images being referenced are on the PHX file server.
+- These scripts are deisgned to work with any HPOC system regardless of location
 
-- The second cluster can be in any HPOC location and can also be a 1, 3 or 4 node cluster.  PHX and DM3 have been verified.  AWS will be tested soon.
+- Prism Central is required.
 
-- Flow (Security Policy Microsegmentation) must be eneabled.
+- PHX Clusters will currently be a bit quicker as the OS Image being used is located on the PHX file server
 
-- Disaster Recovery for the Local AZ must be enabled in Leap.  This can be done by manually creating a Protection Policy in Prism Central and selecting "Enable" on the title bar that appears.  The creation of the policy can then be canceled. 
+- Specific modules in this terraform script require a Prism Central with 2 Clusters attached. Review the module list to determine if 1 or 2 clusters are needed based on the planned module usage.
+
+- Clusters can be any number of nodes (1, 2, 3, 4 or more). 
+
+- Clusters do not need to be in the same location for modules requiring 2 clusters.
+
+- Prequisites can be configured through HPOC runbooks or manually, it doesn't matter as long as they exist and are enabled.
 
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs
@@ -38,13 +43,12 @@ There is still some work to be done to meet the above goals.
 ## Modules
 
 ### vms_in_security_policy
-    Create the number of VMs specified and use Flow Microsegmentation to create a security policy for these VMs
+- Create the number of VMs specified and use Flow Microsegmentation to create a security policy for these VMs.
+- Prerequisites: Flow or Security Policy Microsegmentation must be enabled.  Works with any number of clusters. Microsegentation can be enabled by going to Prism Central -> Network & Security -> Security Policies -> Enable. 
 
 ### vms_in_leap_protection_policy
-    Create the number of VMs specified and implement a Leap Protection Policy
-
-    Note: This modele requires 2 Clusters be registered to the Prism Central 
-    Note: The Availability Zone URL must be obtained from the Prism Central UI.  See notes in terraform.tfvars
+- Create the number of VMs specified and implement a Leap Protection Policy
+- Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled must be enabled.  This can be done by going to Prism Central -> Data Protection -> Protection Policies -> Create Protection Policy and clicking enable in the title banner. The Create Protection Policy workflow can then be cancelled. 
 
 ### Tested Versions
 
