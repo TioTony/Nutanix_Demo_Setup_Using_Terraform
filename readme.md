@@ -49,6 +49,7 @@ There is still some work to be done to meet the above goals.
 ### vms_in_leap_protection_policy
 - Create the number of VMs specified and implement a Leap Protection Policy
 - Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Data Protection -> Recovery Plan -> Enable Disaster Recovery. 
+- NOTE: ACTIVE WORK IS HAPPENING ON THIS MODULE AND IT IS NOT COMPLETE.
 
 ### Tested Versions
 
@@ -59,7 +60,7 @@ There is still some work to be done to meet the above goals.
 | 1.7.1 | 6.5.1 | pc.2022.6 | 9/28/2022 |
 
 ## Known Issues and potential workarounds
-- The ways Prism Central stores the ordering of clusters and Prism Central is not consistent.  Below are some of the errors caused by this ordering.  Refer to comments in main.tf for information about how to work around the issue.  Usually it is a simple change to an index.
+- The way Prism Central stores the ordering of clusters and Prism Central is not consistent.  Below are some of the errors caused by this ordering.  Refer to comments in main.tf for information about how to work around the issue.  Usually it is a simple change to an index.
 
 │ Error: subnet with the given name, not found
 │

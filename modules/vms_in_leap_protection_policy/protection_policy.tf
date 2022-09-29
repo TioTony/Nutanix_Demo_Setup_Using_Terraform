@@ -1,5 +1,8 @@
 /*
 TH: Create a Protection Policy for the desktop systems created in this module with the following properties:
+   - Hourly Snapshot
+   - Keep the 2 most recent snapshots on the local and remote cluster
+   - Use Crash Consistent snapshots
 
 */
 resource "nutanix_protection_rule" "AMH_TF_AUTO_Protect_Desktops" {
