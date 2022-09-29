@@ -28,8 +28,9 @@ Change the "0" to "1" or another number if terraform apply spits out errors sayi
 ╵
 A list of the connected clusters can be found by doing the following:
 - ssh to the Prism Central VM as the 'nutanix' user
-- run 'nuclei clsuter.list'
-- The index should match the output.  For example, the fist cluster listed is index 0.
+- run 'nuclei cluster.list'
+- The index may match the output.  Further varification is needed as the list also appears to be alphabetical.
+- For example, the fist cluster listed is index 0.
 - Prism Central will usually be listed ast "Unnamed"
 Adjust tehe below index values as needed if the clusters and PC don't come back in the order of:
   - cluster1
@@ -37,9 +38,9 @@ Adjust tehe below index values as needed if the clusters and PC don't come back 
   - Prism Central
 */
 locals {
-  cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
-  cluster2 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
-  prism_central = data.nutanix_clusters.clusters.entities[2].metadata.uuid
+  cluster1 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+  cluster2 = data.nutanix_clusters.clusters.entities[2].metadata.uuid
+  prism_central = data.nutanix_clusters.clusters.entities[0].metadata.uuid
 }
 
 /*

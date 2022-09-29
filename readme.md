@@ -48,7 +48,7 @@ There is still some work to be done to meet the above goals.
 
 ### vms_in_leap_protection_policy
 - Create the number of VMs specified and implement a Leap Protection Policy
-- Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Data Protection -> Protection Policies -> Create Protection Policy and clicking enable in the title banner. The Create Protection Policy workflow can then be cancelled. 
+- Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Data Protection -> Recovery Plan -> Enable Disaster Recovery. 
 
 ### Tested Versions
 
@@ -58,3 +58,20 @@ There is still some work to be done to meet the above goals.
 | 1.7.0 | 6.5 | pc.2022.6 | 9/21/2022 |
 | 1.7.1 | 6.5.1 | pc.2022.6 | 9/28/2022 |
 
+## Known Issues and potential workarounds
+- The ways Prism Central stores the ordering of clusters and Prism Central is not consistent.  Below are some of the errors caused by this ordering.  Refer to comments in main.tf for information about how to work around the issue.  Usually it is a simple change to an index.
+
+│ Error: subnet with the given name, not found
+│
+│   with data.nutanix_subnet.Primary,
+│   on datasources.tf line 15, in data "nutanix_subnet" "Primary":
+│   15: data "nutanix_subnet" "Primary" {
+│
+
+│ Error: error waiting for vm (fb4e0f67-9ff1-4631-aa61-b55a5e370e78) to create: error_detail: INVALID_ARGUMENT: Given input is invalid. Referenced cluster 500223c0-4ce7-49a8-b9bd-08fda1c5be3a is not connected, progress_message: create_vm
+│
+│   with module.vms_in_security_policy.nutanix_virtual_machine.AMH_TF_AUTO_Security_Policy_vm[1],
+│   on modules\vms_in_security_policy\main.tf line 16, in resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_vm":
+│   16: resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_vm" {
+│
+╵
