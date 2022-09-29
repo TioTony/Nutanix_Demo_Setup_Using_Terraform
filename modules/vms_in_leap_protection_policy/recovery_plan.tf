@@ -24,5 +24,7 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
         #stage_uuid = "ab788130-0820-4d07-a1b5-b0ba4d3a42asd"
         #delay_time_secs = 0
     }
-    parameters{}
+    parameters{
+
+    }
 }
