@@ -39,6 +39,8 @@ There is still some work to be done to meet the above goals.
 
 - All VMs will be created in the cluster identified in by the Index value in main.tf and datasources.tf.  The other cluster will be
   a destination target for Protection Policies, VPCs, etc.
+- The UUIDs for each cluster and Prism Central will be output on the screen after "terraform plan".  Compare this with output from "nuclei cluster.list" and 
+  fine tune the indexes in main.tf as needed so the variables match the clusters and Prism Central correctly.
 
 ## Modules
 
@@ -48,7 +50,7 @@ There is still some work to be done to meet the above goals.
 
 ### vms_in_leap_protection_policy
 - Create the number of VMs specified and implement a Leap Protection Policy
-- Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Data Protection -> Recovery Plan -> Enable Disaster Recovery. 
+- Prerequisites: This module requires 2 Clusters be registered to the Prism Central.  Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Prism Central Settings -> Enable Disaster Recovery -> Enable. 
 - NOTE: ACTIVE WORK IS HAPPENING ON THIS MODULE AND IT IS NOT COMPLETE.
 
 ### Tested Versions

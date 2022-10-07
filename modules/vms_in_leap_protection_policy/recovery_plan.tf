@@ -4,6 +4,7 @@ TH: Create a Recovery Plan for the desktop systems created in this module with t
    - Fails over all VMs in the Protection Policy 
 */
 # Name the recovery plan and give it a description
+/*
 resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
     name        = "${var.prefix_for_created_entities}Recovery_Plan_Desktops"
     description = "${var.prefix_for_created_entities}Terraform created Recovery Plan for Desktops"
@@ -28,3 +29,4 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
 
     }
 }
+*/

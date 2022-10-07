@@ -38,9 +38,26 @@ Adjust tehe below index values as needed if the clusters and PC don't come back 
   - Prism Central
 */
 locals {
-  cluster1 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+  cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
   cluster2 = data.nutanix_clusters.clusters.entities[2].metadata.uuid
-  prism_central = data.nutanix_clusters.clusters.entities[0].metadata.uuid
+  prism_central = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+}
+
+/*
+TH: Output the values of the variables for cluster1, cluster2 and prism_central.  These will be displayed as the last lines of 
+    "terraform plan" and can be used to adjust the above indexes.  Compare the output with the above mentioned "nuclei cluster.list"
+    and fine tune as needed.
+*/
+output "cluster1" {
+  value = local.cluster1
+}
+
+output "cluster2" {
+  value = local.cluster2
+}
+
+output "prism_central" {
+  value = local.prism_central
 }
 
 /*
