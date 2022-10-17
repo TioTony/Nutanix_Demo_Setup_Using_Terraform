@@ -4,7 +4,7 @@ TH: Create a Recovery Plan for the desktop systems created in this module with t
    - Fails over all VMs in the Protection Policy 
 */
 # Name the recovery plan and give it a description
-/*
+
 resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
     name        = "${var.prefix_for_created_entities}Recovery_Plan_Desktops"
     description = "${var.prefix_for_created_entities}Terraform created Recovery Plan for Desktops"
@@ -22,11 +22,53 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
                 }
             }
         }
-        #stage_uuid = "ab788130-0820-4d07-a1b5-b0ba4d3a42asd"
-        #delay_time_secs = 0
     }
-    parameters{
 
+    parameters{
+        network_mapping_list{
+            availability_zone_network_mapping_list{
+                availability_zone_url = var.prism_central
+                cluster_reference_list {
+                    kind = "cluster"
+                    uuid = var.source_cluster
+                }
+
+                cluster_reference_list {
+                    kind = "cluster"
+                    uuid = var.destination_cluster
+                }
+
+                recovery_network {
+                    name = "Primary"
+                }
+
+                test_network {
+                    name = "Primary"
+                }
+            }
+        }
+
+        network_mapping_list{
+            availability_zone_network_mapping_list{
+                availability_zone_url = var.prism_central
+                cluster_reference_list {
+                    kind = "cluster"
+                    uuid = var.source_cluster
+                }
+
+                cluster_reference_list {
+                    kind = "cluster"
+                    uuid = var.destination_cluster
+                }
+
+                recovery_network {
+                    name = "Primary"
+                }
+
+                test_network {
+                    name = "Primary"
+                }
+            }
+        }
     }
 }
-*/

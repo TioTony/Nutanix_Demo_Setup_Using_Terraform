@@ -60,6 +60,7 @@ There is still some work to be done to meet the above goals.
 | 1.7.0 | 5.20.3 | pc.2022.6 | 9/20/2022 |
 | 1.7.0 | 6.5 | pc.2022.6 | 9/21/2022 |
 | 1.7.1 | 6.5.1 | pc.2022.6 | 9/28/2022 |
+| 1.7.1 | 6.5.1.5 | pc.2022.6.0.1 | 10/17/2022 |
 
 ## Known Issues and potential workarounds
 - The way Prism Central stores the ordering of clusters and Prism Central is not consistent.  Below are some of the errors caused by this ordering.  Refer to comments in main.tf for information about how to work around the issue.  Usually it is a simple change to an index.

@@ -13,10 +13,10 @@ terraform {
 /*
 TH: This section contains all the details related to the VMs being built for inclusion in the Security Policy.
 */
-resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_vm" {
+resource "nutanix_virtual_machine" "AMH_TF_AUTO_Security_Policy_VM" {
   # General Information
   count = var.vm_count
-  name                 = "${var.prefix_for_created_entities}Security_Policy_vm_${count.index}"
+  name                 = "${var.prefix_for_created_entities}Security_Policy_VM_${count.index}"
   description          = "${var.prefix_for_created_entities}Security Policy VM"
   num_vcpus_per_socket = 2
   num_sockets          = 1
