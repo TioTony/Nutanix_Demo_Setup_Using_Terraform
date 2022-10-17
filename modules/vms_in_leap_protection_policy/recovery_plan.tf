@@ -14,7 +14,7 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
         stage_work{
             recover_entities{
                 entity_info_list{
-                    # Use the same categories that were used for the protection policy.
+                    # Use the same category that was used for the protection policy.
                     categories {
                         name = data.nutanix_category_key.AppTypeKey.name
                         value = nutanix_category_value.AMH_TF_AUTO_Protection_AppType_Desktop.value
@@ -24,6 +24,7 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
         }
     }
 
+
     parameters{
         network_mapping_list{
             availability_zone_network_mapping_list{
@@ -31,11 +32,6 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
                 cluster_reference_list {
                     kind = "cluster"
                     uuid = var.source_cluster
-                }
-
-                cluster_reference_list {
-                    kind = "cluster"
-                    uuid = var.destination_cluster
                 }
 
                 recovery_network {
@@ -51,10 +47,6 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
         network_mapping_list{
             availability_zone_network_mapping_list{
                 availability_zone_url = var.prism_central
-                cluster_reference_list {
-                    kind = "cluster"
-                    uuid = var.source_cluster
-                }
 
                 cluster_reference_list {
                     kind = "cluster"
