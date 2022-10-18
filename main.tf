@@ -39,7 +39,9 @@ Adjust tehe below index values as needed if the clusters and PC don't come back 
 */
 locals {
   cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
+  cluster1_name = data.nutanix_clusters.clusters.entities[0].name
   cluster2 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
+  cluster2_name = data.nutanix_clusters.clusters.entities[1].name
   prism_central = data.nutanix_clusters.clusters.entities[2].metadata.uuid
 }
 
@@ -52,13 +54,26 @@ output "cluster1" {
   value = local.cluster1
 }
 
+output "cluster1_name" {
+  value = local.cluster1_name
+}
+
 output "cluster2" {
   value = local.cluster2
+}
+
+output "cluster2_name" {
+  value = local.cluster2_name
 }
 
 output "prism_central" {
   value = local.prism_central
 }
+
+output "vm_subnet" {
+  value = data.nutanix_subnet.Primary.name
+}
+
 
 /*
 TH: This section contains the "modules" to be included for specific tasks.  Each module is a self-contained sub-directory to carry out the specific 
@@ -66,7 +81,6 @@ TH: This section contains the "modules" to be included for specific tasks.  Each
     used for demos.
 */
 
-/*
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
@@ -81,7 +95,6 @@ module "vms_in_security_policy" {
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }
-*/
 
 module "vms_in_protection_policy" {
   source = "./modules/vms_in_leap_protection_policy"
@@ -92,8 +105,10 @@ module "vms_in_protection_policy" {
   vm_image = nutanix_image.AMH_TF_AUTO_CentOS7.id
   # Source Cluster for Leap AZ
   source_cluster = local.cluster1
+  source_cluster_name = local.cluster1_name
   # Destination Cluster for Leap AZ
   destination_cluster = local.cluster2
+  destination_cluster_name = local.cluster2_name
   # Prism Central UUID
   prism_central = local.prism_central
   # Number of VMs to create

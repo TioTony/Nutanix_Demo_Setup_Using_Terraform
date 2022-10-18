@@ -24,16 +24,23 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
         }
     }
 
-
     parameters{
         network_mapping_list{
+            /*
+            TH: Both clusters are in the same Availability Zone so only 1 network_mapping_list is needed.
+            */
             availability_zone_network_mapping_list{
+                # This block will contain the network info for the source cluster
+                # AZ URL is the Prism Central UUID
                 availability_zone_url = var.prism_central
                 cluster_reference_list {
+                    # Source Cluster information
                     kind = "cluster"
+                    name = var.source_cluster_name
                     uuid = var.source_cluster
                 }
 
+                #The "Primary" network will be used for both recovery and test.  These are the networks that exist on the source cluster.
                 recovery_network {
                     name = "Primary"
                 }
@@ -42,14 +49,15 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
                     name = "Primary"
                 }
             }
-        }
-
-        network_mapping_list{
+        
             availability_zone_network_mapping_list{
+                # This block will contain the network info for the destination cluster.  All info is similar to the source cluster block above.
+                # AZ URL is the Prism Central UUID
                 availability_zone_url = var.prism_central
 
                 cluster_reference_list {
                     kind = "cluster"
+                    name = var.destination_cluster_name
                     uuid = var.destination_cluster
                 }
 
