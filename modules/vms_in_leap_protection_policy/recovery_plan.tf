@@ -62,10 +62,16 @@ resource "nutanix_recovery_plan" "AMH_TF_AUTO_Recovery_Plan_Desktops" {
                 }
 
                 recovery_network {
+                    # Use this for AWS based clusters
+                    # name = "User VM Network"
+                    # Use this for HPOC based clusters
                     name = "Primary"
                 }
 
                 test_network {
+                    # Use this for AWS based clusters
+                    # name = "User VM Network"
+                    # Use this for HPOC based clusters
                     name = "Primary"
                 }
             }

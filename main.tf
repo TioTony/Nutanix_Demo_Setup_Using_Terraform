@@ -38,11 +38,11 @@ Adjust tehe below index values as needed if the clusters and PC don't come back 
   - Prism Central
 */
 locals {
-  cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
-  cluster1_name = data.nutanix_clusters.clusters.entities[0].name
+  cluster1 = data.nutanix_clusters.clusters.entities[2].metadata.uuid
+  cluster1_name = data.nutanix_clusters.clusters.entities[2].name
   cluster2 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
   cluster2_name = data.nutanix_clusters.clusters.entities[1].name
-  prism_central = data.nutanix_clusters.clusters.entities[2].metadata.uuid
+  prism_central = data.nutanix_clusters.clusters.entities[0].metadata.uuid
 }
 
 /*
@@ -81,6 +81,7 @@ TH: This section contains the "modules" to be included for specific tasks.  Each
     used for demos.
 */
 
+/*
 module "vms_in_security_policy" {
   source = "./modules/vms_in_security_policy"
 
@@ -95,7 +96,7 @@ module "vms_in_security_policy" {
   # Prefix to prepend to created entities
   prefix_for_created_entities = var.prefix_for_created_entities
 }
-
+*/
 module "vms_in_protection_policy" {
   source = "./modules/vms_in_leap_protection_policy"
 
