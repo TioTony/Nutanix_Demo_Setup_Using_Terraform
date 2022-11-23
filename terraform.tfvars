@@ -18,10 +18,10 @@ cluster_pc_password = "nx2Tech714!"
 # Prism Central Port
 cluster_pc_port = "9440"
 # Prism Central IP or DNS Name
-cluster_pc_endpoint = "10.38.10.137"
+cluster_pc_endpoint = "10.38.193.39"
 # Foundation Server IP or DNS Name.  Set to the same value as the Prism Central IP or DNS Name if Foundation is not being used.
 # Ommitting this entry causes Terraform to give a warning even if Foundation isn't being used.
-cluster_foundation_endpoint = "10.38.10.137"
+cluster_foundation_endpoint = "10.38.193.39"
 # Foundation Server Port
 cluster_foundation_port = "8000"
 # "true" if using an insecure connection.  "false" if using a secure connection.  HPOC will be "true".

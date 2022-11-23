@@ -11,7 +11,7 @@ terraform {
 }
 
 /*
-TH: This section contains all the details related to the VMs being built for inclusion in the Protection Policy.
+TH: This section contains all the details related to the VMs being built for inclusion in the VPC.
 */
 resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_VM" {
   # General Information
@@ -47,10 +47,4 @@ resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_VM" {
       device_type = "DISK"
     }
   }
-
-    categories {
-      name   = data.nutanix_category_key.AppTypeKey.name
-      value  = nutanix_category_value.AMH_TF_AUTO_Protection_AppType_Desktop.value
-    }
-
 }

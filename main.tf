@@ -41,7 +41,7 @@ locals {
   cluster1 = data.nutanix_clusters.clusters.entities[0].metadata.uuid
   cluster1_name = data.nutanix_clusters.clusters.entities[0].name
   cluster2 = data.nutanix_clusters.clusters.entities[1].metadata.uuid
-  cluster2_name = data.nutanix_clusters.clusters.entities[1].name
+  cluster2_name = data.nutanix_clusters.clusters.entities[1]].name
   prism_central = data.nutanix_clusters.clusters.entities[2].metadata.uuid
 }
 

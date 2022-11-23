@@ -26,6 +26,17 @@ There is still some work to be done to meet the above goals.
 
 - Prequisites can be configured through HPOC runbooks or manually, it doesn't matter as long as they exist and are enabled.
 
+## Prerequisites for everything
+This is a consolidated list of the module specific prequisites if all modules will be used.  Refer to individual modules if using a subset of modules.
+
+- Flow or Security Policy Microsegmentation must be enabled by going to Prism Central -> Network & Security -> Security Policies -> Enable. 
+
+- 2 Clusters be registered to the Prism Central 
+
+- Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Prism Central Settings -> Enable Disaster Recovery -> Enable. 
+
+- Advanced Networking be enabled.  This can be done by going to This can be done by going to Prism Central -> Prism Central Settings -> Advanced Networking and selecting Enable.  Note this feature requires a Prism Central with Microservice Infrastructure enabled.  Refer to the Prism Central Admin guide for information about this feature before enabling it as the change is significant and the change is beyond the scope of this readme.
+
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs
 - Visit the Terraform site for Terraform installation instruactions.  They cover it better than I could.
@@ -55,6 +66,12 @@ There is still some work to be done to meet the above goals.
 ### vm_pool_for_any_purpose
 - Create the number of VMs specified. These VMs can be used for any purpose.
 - Prequisites: None
+
+### vms_in_vpc
+- This module is currently under construction
+- Create a VPC
+- Create the number of VMs specified inside the VPC
+- Prequisites: This module requires Advanced Networking be eneabled.  This can be done by going to This can be done by going to Prism Central -> Prism Central Settings -> Advanced Networking and selecting Enable.  Note this feature requires a Prism Central with Microservice Infrastructure enabled.  Refer to the Prism Central Admin guide for information about this feature before enabling it as the change is significant and the change is beyond the scope of this readme.
 
 ### Tested Versions
 
