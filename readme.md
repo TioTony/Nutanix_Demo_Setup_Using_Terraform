@@ -35,7 +35,10 @@ This is a consolidated list of the module specific prequisites if all modules wi
 
 - Disaster Recovery for the Local AZ must be enabled.  This can be done by going to Prism Central -> Prism Central Settings -> Enable Disaster Recovery -> Enable. 
 
-- Advanced Networking be enabled.  This can be done by going to This can be done by going to Prism Central -> Prism Central Settings -> Advanced Networking and selecting Enable.  Note this feature requires a Prism Central with Microservice Infrastructure enabled.  Refer to the Prism Central Admin guide for information about this feature before enabling it as the change is significant and the change is beyond the scope of this readme.
+- Advanced Networking must be enabled. This can be done by going to Prism Central -> Prism Central Settings -> Advanced Networking and selecting Enable.  
+
+### Note
+ Advanced Networking requires a Prism Central with Microservice Infrastructure enabled.  Refer to the Prism Central Admin guide for information about this feature before enabling it as the change is significant and the change is beyond the scope of this readme.  The Prism Central must also be the "X-Large" configuration.  Check KB-9887 for guidance. For simplicity it is worth jumping right to the largest recommended PC size of 22 vCPU and 77 GB of RAM.  Be sure to follow the instructions in the KB to run the NCC checks.
 
 ## Use
 - Visual Studio Code was used to create this code but you can use whatever fits your needs
