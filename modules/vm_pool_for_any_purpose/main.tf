@@ -13,7 +13,7 @@ terraform {
 /*
 TH: This section contains all the details related to the VMs being built for general purposes.
 */
-resource "nutanix_virtual_machine" "AMH_TF_AUTO_Protection_Policy_VM" {
+resource "nutanix_virtual_machine" "AMH_TF_AUTO_General_Purpose_VM" {
   # General Information
   count = var.vm_count
   name                 = "${var.prefix_for_created_entities}General_Purpose_VM_${count.index}"
